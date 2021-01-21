@@ -1,3 +1,5 @@
-
-
-
+tree--------------------------
+gcc -c -o treelib.o treelib.c
+fbc -lib treelib.o treelib.a
+fbc tree.bas
+-----------------------------
