@@ -5,4 +5,7 @@ fbc tree.bas
 -----------------------------
 
 adds------------------------
-o adds.s a
+as -o adds.o adds.s
+fbc -lib adds.o adds.a
+fbc add.bas
+----------------------------
