@@ -1,0 +1,11 @@
+#inclib "map3d"
+
+
+
+extern "C"
+	declare sub setarray cdecl alias "setarray"(byref map1 as integer ptr,x as integer,y as integer,z as integer,xx as integer,yy as integer,value as integer)
+	declare function getarray cdecl alias "getarray"(byref map1 as integer ptr,x as integer,y as integer,z as integer,xx as integer,yy as integer)as integer
+	declare sub startmap cdecl alias "startmap"(byref map1 as integer ptr,xx as integer,yy as integer,zz as integer)
+	declare sub reportmap cdecl alias "reportmap"(byref map1 as integer ptr,xx as integer,yy as integer,zz as integer)
+end extern
+
