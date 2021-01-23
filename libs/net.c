@@ -20,6 +20,7 @@ void nets(char *address ,int port ,int buff,char *s)
 	char *p5;
 	char *p6;
 	int sct;
+	int pos=0;
 	struct hostent *hosts;
 	ssize_t sizes;
 	struct sockaddr_in srv;
@@ -69,18 +70,20 @@ void nets(char *address ,int port ,int buff,char *s)
 		goto exitss;
 	}
 	
-	sprintf(stringg,"GET /%s HTTP/1.1\r\n\r\n",p3);
-	buffer =stringg;
 	if( send(sct , s , strlen(s) , 0) < 0)
 	{
 		strcpy(s,"Send failed");
 		close(sct);
 		goto exitss;
 	}
-	
+	pos=0;
+	strcpy(s,"\0\0");	
 	do{
 		sizes=read(sct, srv_reply , buff) ;
+		s[pos]=0;
 		strcat(s,srv_reply);
+		pos=pos+sizes;
+		s[pos]=0;
 	}while(sizes>1);
 	close(sct);
  exitss:
