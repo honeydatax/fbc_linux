@@ -181,7 +181,7 @@ end sub
 	wend
 	locate 1,1
 	color 7,1
-	print "you win "
+	if check_stack()=1 then print "you win "
 	while inkey<>chr(27)
 	wend
 
