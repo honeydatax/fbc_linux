@@ -7,7 +7,7 @@ type objc
 end type
 sub draw_obj(objc1 as objc)
 	color objc1.c,objc1.b
-	locate objc1.x,objc1.y
+	locate objc1.y,objc1.x
 	print objc1.s
 end sub
 
@@ -22,10 +22,10 @@ dim obj1 as objc
 	clears 1
 		obj1.s="hello world..."
 	while inkey<>chr(27)	
-		obj1.y=int(rnd()*22)
+		obj1.y=int(rnd()*20+1)
 		obj1.c=int(rnd()*15)
 		obj1.b=int(rnd()*15)
-		obj1.x=int(rnd()*80)
+		obj1.x=int(rnd()*77+1)
 		draw_obj(obj1)
 		sleep 200
 	wend
