@@ -4,7 +4,7 @@ dim y as integer
 dim times as integer
 	color 7,1
 	cls
-	randomize 1
+	randomize timer()
 	times=10
 	print "guess number 0 to 100"
 	n=int(rnd()*100)
