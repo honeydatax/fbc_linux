@@ -3,6 +3,7 @@ dim shared gammer(0 to 7) as integer
 dim shared gameOver as integer
 dim shared nexts as integer
 dim shared ok as integer
+dim shared ok1 as integer
 dim shared debugok as integer
 function gethexs(i as integer,nibles as integer)as integer
 	gethexs=0
@@ -99,8 +100,11 @@ end function
 		wend
 		boards(nexts)=asc("Y")
 		ok=scans_board(asc("Y"))
+		if ok=1 then ok1=1		
+		if boards(0)<>asc("0") and boards(1)<>asc("1") and boards(2)<>asc("2") and boards(3)<>asc("3") and boards(5)<>asc("5") and boards(6)<>asc("6") and  boards(7)<>asc("7") and boards(8)<>asc("8") then ok=1  
 		gameOver=ok
 		if ok=1 then print_board
+		if ok1=1 then print "you win" 
 		if ok=1 then goto escape
 		ok=0
 		nexts=0
@@ -112,8 +116,11 @@ end function
 		wend
 		boards(nexts)=asc("X")
 		ok=scans_board(asc("X"))
+		if ok=1 then ok1=1
+		if boards(0)<>asc("0") and boards(1)<>asc("1") and boards(2)<>asc("2") and boards(3)<>asc("3") and boards(5)<>asc("5") and boards(6)<>asc("6") and  boards(7)<>asc("7") and boards(8)<>asc("8") then ok=1  
 		gameOver=ok
 		if ok=1 then print_board
+		if ok1=1 then print "computer win" 
 	escape:
 	wend
 	
