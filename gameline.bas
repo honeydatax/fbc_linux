@@ -36,7 +36,7 @@ sub reset_data()
 	gammer(6)=1*256+4*16+7
 	gammer(7)=2*256+5*16+8
 	gameOver=0
-	randomize 1
+	randomize timer()
 
 end sub 
 sub print_data()
