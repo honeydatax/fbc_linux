@@ -4,7 +4,7 @@ dim shared pass3 as string
 dim n as integer
 dim nn as integer
 sub getpass()
-	randomize 1
+	randomize timer()
 	color 7,1
 	cls
 	locate 1,1
