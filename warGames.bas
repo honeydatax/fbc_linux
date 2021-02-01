@@ -10,7 +10,6 @@ sub getpass()
 	locate 1,1
 	print " you must enter the defence network using pin password 0000"
 	pass=trim(str(int(rnd()*8888+1000)))
-	print pass
 end sub
 
 getpass 
