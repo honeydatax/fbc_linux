@@ -50,6 +50,8 @@ extern "C++"
 		declare sub endX alias "endX"(fbfd as integer)
 		declare sub rectangle alias "rectangle"(x as integer,y as integer,x2 as integer,y2 as integer,r as integer,g as integer,b as integer)
 		declare sub boxs  alias "boxs"(x as integer,y as integer,x2 as integer,y2 as integer,r as integer,g as integer,b as integer)
+		declare sub hline  alias "hline"(x as integer,y as integer,x2 as integer,r as integer,g as integer,b as integer)
+		declare sub vline  alias "vline"(x as integer,y as integer,x2 as integer,r as integer,g as integer,b as integer)
 		'declare sub TputImage  alias "TputImage"(x as integer,y as integer,byref img as any ptr,tr as integer ,tg as integer,tb as integer)
 		'declare sub Ipixel16  alias "Ipixel16"(x as integer,y as integer,byref img as any ptr,color as integer)
 		'declare sub IputImage  alias "IputImage"(x as integer,y as integer,img as any ptr,img2 as any ptr)
@@ -82,10 +84,8 @@ extern "C++"
 		'declare sub ccircle  alias "circle"(xx as integer,yy as integer,rr as integer,rcc as integer,gcc as integer,bcc as integer)
 		'declare sub grid   alias "grid"(c as control ,steep as integer,r as integer,g as integer,b as integer)
 		'declare sub ppixel  alias "ppixel"(x as integer,y as integer,r as integer,g as integer,b as integer)
-		'declare sub hline  alias "hline"(x as integer,y as integer,x2 as integer,r as integer,g as integer,b as integer)
 		'declare sub gputc  alias "gputc"(x as integer,y as integer,r as integer,g as integer,b as integer,c as integer)
 		'declare sub gputs  alias "gputs"(x as integer,y as integer,r as integer,g as integer,b as integer,c as zstring ptr)
-		
 		'declare sub lineR  alias "lineR"(x as integer,y as integer,x2 as integer,y2 as integer,r as integer,g as integer,b as integer)
 		'declare sub lineL  alias "lineL"(x as integer,y as integer,x2 as integer,y2 as integer,r as integer,g as integer,b as integer)
 

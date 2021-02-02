@@ -93,7 +93,7 @@ void circle(int xx,int yy ,int rr,int rcc,int gcc, int bcc);
 void endX(int fbfd);
 void grid (control c,int steep,char r,char g,char b);
 void ppixel(int x, int y,char r,char g,char b);
-void hline(int x, int y,int x2,char r,char g,char b);
+void hline(int x, int y,int x2,int r,int g,int b);
 void boxs(int x,int y,int x2,int y2,int r,int g,int b);
 void gputc(int x,int y,char r,char g,char b,char c);
 void gputs(int x,int y,char r,char g,char b,char *c);
@@ -5340,7 +5340,7 @@ if (x>0 && y>0 && x<vinfo.xres && y<vinfo.yres){
 
 
 
-void hline(int x, int y,int x2,char r,char g,char b){
+void hline(int x, int y,int x2,int r,int g,int b){
 int f;
 int xx1=x;
 int xx2=x2;
@@ -5355,7 +5355,7 @@ ppixel(f,y,r,g,b);
 }
 
 
-void vline(int x,int y,int y2,char r,char g,char b){
+void vline(int x,int y,int y2,int r,int g,int b){
 int f;
 int yy1=y;
 int yy2=y2;
