@@ -25,7 +25,7 @@ int h;
 };
 
 struct label{
-control c;
+struct control c;
 char caption[100];
 char r;
 char g;
@@ -33,7 +33,7 @@ char b;
 };
 
 struct button{
-control c;
+struct control c;
 char caption[100];
 char r;
 char g;
@@ -42,7 +42,7 @@ void (*onClick)();
 };
 
 struct menus{
-control c;
+struct control c;
 char caption[100];
 char r;
 char g;
@@ -52,7 +52,7 @@ void (*onClick)(int index);
 
 
 struct textBar{
-control c;
+struct control c;
 char caption[100];
 char color;
 char bcolor;
@@ -66,7 +66,7 @@ void IcopyImage(int x,int y, int *img, int *img2);
 void ifffill(int x,int y,int *img,char rc,char gc,char bc);
 int igpixel(int x,int y,int *img);
 int startX(char *c);
-void icircle(int xx,int yy ,int rr,int *img,char rcc,char gcc, char bcc);
+void icircle(int xx,int yy ,int rr,int *img,int rcc,int gcc, int bcc);
 void ioutSide(int y,int *img);
 void iball(int xx,int yy ,int rr,int *img,char rc,char gc,char bcc);
 void ivline(int x,int y,int y2,int *img,char r,char g,char b);
@@ -74,8 +74,8 @@ void ilineR(int x,int y,int x2,int y2,int *img,char r,char g,char bc);
 void ilineL(int x,int y,int x2,int y2,int *img,char r,char g,char bc);
 void iline(int x,int y,int x2,int y2,int *img,char r,char g,char b);
 void outSide(int y);
-void centerControl (control *c,int tw,int th);
-void drawLabel(label l);
+void centerControl (struct control *c,int tw,int th);
+void drawLabel(struct label l);
 int textW(char *caption);
 void poligan(int *p,int size,char r,char g,char b);
 void fillPolygan(int x,int y,int r,int division,char rr,char gg,char bb);
@@ -91,7 +91,7 @@ void Ipixel(int x,int y,int *img,char r,char g,char b);
 int *creatImage(int w,int h);
 void circle(int xx,int yy ,int rr,int rcc,int gcc, int bcc);
 void endX(int fbfd);
-void grid (control c,int steep,char r,char g,char b);
+void grid (struct control *c,int steep,int r,int g,int b);
 void ppixel(int x, int y,char r,char g,char b);
 void hline(int x, int y,int x2,int r,int g,int b);
 void boxs(int x,int y,int x2,int y2,int r,int g,int b);
@@ -100,9 +100,9 @@ void gputs(int x,int y,char r,char g,char b,char *c);
 void ball(int xx,int yy ,int rr,int r,int g,int b);
 void lineR(int x,int y,int x2,int y2,char r,char g,char b);
 void lineL(int x,int y,int x2,int y2,char r,char g,char b);
-void rectangle(int x,int y,int x2,int y2,char r,char g,char b);
+void rectangle(int x,int y,int x2,int y2,int r,int g,int b);
 void line(int x,int y,int x2,int y2,char r,char g,char b);
-void grid (control c,int steep,char r,char g,char b);
+
 int gpixel(int x,int y);
 void copyImage(int x,int y, int *img);
 int Igpixel(int x,int y,int *img,char *r,char *g,char *b);
@@ -5567,12 +5567,12 @@ line(x2,y,x2,y2,r,g,b);
 }
 
 
-void grid (control c,int steep,int r,int g,int b){
+void grid (struct control *c,int steep,int r,int g,int b){
 int i;
-boxs(c.x,c.y,c.x+c.w,c.y+c.h,255,255,255);
-rectangle(c.x,c.y,c.x+c.w,c.y+c.h,r,g,b);
-for(i=c.x;i<c.x+c.w;i=i+steep)line(i,c.y,i,c.y+c.h,r,g,b);
-for(i=c.y;i<c.y+c.h;i=i+steep)line(c.x,i,c.x+c.w,i,r,g,b);
+boxs(c->x,c->y,c->x+c->w,c->y+c->h,255,255,255);
+rectangle(c->x,c->y,c->x+c->w,c->y+c->h,r,g,b);
+for(i=c->x;i<c->x+c->w;i=i+steep)line(i,c->y,i,c->y+c->h,r,g,b);
+for(i=c->y;i<c->y+c->h;i=i+steep)line(c->x,i,c->x+c->w,i,r,g,b);
 }
 
 int gpixel(int x,int y){
@@ -5662,7 +5662,7 @@ img[iy*img[0]+ix+3]=gpixel(x+ix,y+iy);
 }
 
 
-void circle(int xx,int yy ,int rr,char rcc,char gcc, char bcc){
+void circle(int xx,int yy ,int rr,int rcc,int gcc,int bcc){
 long double rrr=(long double)rr,dx=(long double)xx,dy=(long double)yy,ddddd=0.0,d1=0.0,dd1=0,d=0.0,dd=0.0,ddd=0.0,pi=(long double)PI;
 long double xyr=rrr*2;
 int x=1,y=1,bc=0,c=7,x1=0,y1=0;
@@ -5857,7 +5857,7 @@ poligan(&pol[0],division+1,rr, gg, bb);
 fffill(x,y,rr, gg, bb);
 }
 
-void drawLabel(label l){
+void drawLabel(struct label l){
 char caption[100];
 if(l.c.h<16)l.c.h=16;
 boxs(l.c.x,l.c.y,l.c.x+l.c.w,l.c.y+l.c.h,255,255,255);
@@ -5876,7 +5876,7 @@ int r=strlen(caption) * 8;
 return r;
 }
 
-void centerControl (control *c,int tw,int th){
+void centerControl (struct control *c,int tw,int th){
 c->x=(tw-c->w)/2;
 c->y=(th-c->h)/2;
 }
@@ -6103,7 +6103,7 @@ iboxs(0,y,vinfo.xres,vinfo.yres,img,200,0,0);
 }
 
 
-void icircle(int xx,int yy ,int rr,int *img,char rcc,char gcc, char bcc){
+void icircle(int xx,int yy ,int rr,int *img,int rcc,int gcc, int bcc){
 long double rrr=(long double)rr,dx=(long double)xx,dy=(long double)yy,ddddd=0.0,d1=0.0,dd1=0,d=0.0,dd=0.0,ddd=0.0,pi=(long double)PI;
 long double xyr=rrr*2;
 int x=1,y=1,bc=0,c=7,x1=0,y1=0;
