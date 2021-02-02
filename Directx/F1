@@ -1,0 +1,3 @@
+g++ -c dx.c -o dx.o
+fbc -lib dx.o
+fbc directx.bas
