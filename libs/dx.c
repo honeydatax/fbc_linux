@@ -76,7 +76,7 @@ void iline(int x,int y,int x2,int y2,int *img,char r,char g,char b);
 void outSide(int y);
 void centerControl (struct control *c,int tw,int th);
 void drawLabel(struct label l);
-int textW(char *caption);
+int textW(char *c);
 void poligan(int *p,int size,char r,char g,char b);
 void fillPolygan(int x,int y,int r,int division,char rr,char gg,char bb);
 void poly(int xx,int yy ,int rr,int divisions,int *p);
