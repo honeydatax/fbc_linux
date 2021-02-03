@@ -68,7 +68,7 @@ extern "C"
 		declare sub iline  alias "iline"(x as integer,y as integer,x2 as integer,y2 as integer,img as any ptr,r as integer,g as integer,b as integer)
 		declare sub outSide  alias "outSide"(y as integer)
 		declare sub centerControl   alias "centerControl"(byref c as control,tw as integer,th as integer)
-		declare sub drawLabel  alias "drawLabel"(l as label)
+		declare sub drawLabel  alias "drawLabel"(byval l as label)
 		declare function textW cdecl alias "textW"(c as zstring ptr)as integer
 		declare sub poligan  alias "poligan"(byref p as integer ptr,size as integer,r as integer,g as integer,b as integer)
 		declare sub fillPolygan  alias "fillPolygan"(x as integer,y as integer,r as integer,division as integer,rr as integer,gg as integer,bb as integer)
