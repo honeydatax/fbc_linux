@@ -53,7 +53,7 @@ extern "C"
 		declare sub hline alias "hline"(x as integer,y as integer,x2 as integer,r as integer,g as integer,b as integer)
 		declare sub vline alias "vline"(x as integer,y as integer,x2 as integer,r as integer,g as integer,b as integer)
 		declare sub grids alias "grid"(byref c as control,steep as integer,r as integer,g as integer,b as integer)
-		declare sub TputImage  alias "TputImage"(x as integer,y as integer,byref img as any ptr,tr as integer ,tg as integer,tb as integer)
+		declare sub TputImage  alias "TputImage"(x as integer,y as integer,img as any ptr,tr as integer ,tg as integer,tb as integer)
 		declare sub Ipixel16  alias "Ipixel16"(x as integer,y as integer,byref img as any ptr,color as integer)
 		declare sub IputImage  alias "IputImage"(x as integer,y as integer,img as any ptr,img2 as any ptr)
 		declare sub IcopyImage  alias "IcopyImage"(x as integer,y as integer,img as any ptr,img2 as any ptr)
