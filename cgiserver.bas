@@ -33,12 +33,20 @@ sub onlisten()
 	if n>0 then 
 		ss=	""
 	end if
+	n=instr(ss,"?")
+	while n>1
+	n=instr(ss,"?")
+	if n>0 then 
+		ss=mid(ss,1,n-1)+" "+mid(ss,n+1)
+	end if
+	n=instr(ss,"?")
+	wend
 	s="HTTP/1.0 200 OK" + chr(13) +chr(10)+"Content-type: text/html"+ chr(13) +chr(10)+ chr(13) +chr(10)
 	
-	if ss="" then ss="main.html"
+	if ss="" then ss="main"
 	ss="./"+ss
 	print ss
-	open ss for input as 1
+	open pipe ss for input as #1
 	while not eof(1)
 		Line input #1,ss
 		s=s+ss+chr(13)+chr(10)
