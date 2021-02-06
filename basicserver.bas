@@ -6,6 +6,7 @@ dim shared sub1 as sub
 dim shared n as integer
 dim shared a as integer=0 
 dim shared ss as string
+dim shared counter as integer=0
 sub onlisten()
 	on error goto escapes
 	ss=>z
@@ -44,12 +45,14 @@ sub onlisten()
 	s="HTTP/1.0 200 OK" + chr(13) +chr(10)+"Content-type: text/html"+ chr(13) +chr(10)+ chr(13) +chr(10)
 	
 	if ss="" then ss="main"
-	ss="/usr/bin/env/gbs3 ./"+ss
+	ss="bwbasic ./"+ss
 	print ss
+	counter=0
 	open pipe ss for input as #1
 	while not eof(1)
 		Line input #1,ss
-		s=s+ss+chr(13)+chr(10)
+		if counter>3 then s=s+ss+chr(13)+chr(10)
+		counter=counter+1
 	wend
 	close 
 	s=s + chr(13) +chr(10)
